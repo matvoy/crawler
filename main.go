@@ -14,6 +14,8 @@ func main() {
 	if err := p.Init(); err != nil {
 		log.Fatalf("error creating file: %s", err)
 	}
+	defer p.Close()
+
 	log.Printf("Start parsing %s/\n", baseURL)
 	start := time.Now()
 	p.Parse(baseURL)

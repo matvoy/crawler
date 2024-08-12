@@ -153,6 +153,11 @@ func (p *Parser) isExcludedByRegexp(url string) bool {
 		strings.ContainsAny(url, "#[]") // remove duplicate pages with different scrolls and any other unusual pages.
 }
 
+// close file
+func (p *Parser) Close() error {
+	return p.file.Close()
+}
+
 // helper function to join extensions into a regex pattern
 func joinExtensions(extensions []string) string {
 	var sb strings.Builder
